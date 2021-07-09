@@ -40,7 +40,7 @@ public class MovieController {
 
     // 9. Creación, Edición y Eliminación de Película / Serie
 
-    @PostMapping(path = "/newmovie", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/movie", consumes = "application/json", produces = "application/json")
     ResponseEntity<?> createMovies (@RequestBody Movie newMovie) {
         try{
             GeneralResponse response = new GeneralResponse();
@@ -62,7 +62,7 @@ public class MovieController {
         }
     }
 
-    @PutMapping(path = "updatemovie/{id_movie}") @JsonView(View.Summary.class)
+    @PutMapping(path = "movie/{id_movie}") @JsonView(View.Summary.class)
     public ResponseEntity<Movie> updateMovie(@RequestBody Movie updatedMovie, @PathVariable Integer id_movie) {
         return movieRepository.findById(id_movie).map(p -> {
             p.setImage(updatedMovie.getImage());

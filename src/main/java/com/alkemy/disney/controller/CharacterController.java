@@ -87,7 +87,7 @@ public class CharacterController {
     }
 
     // 6. Búsqueda de Personajes
-    @GetMapping(path = "/characters2/{name}") @JsonView(View.Summary2.class)
+    @GetMapping(path = "/character/{name}") @JsonView(View.Summary2.class)
     ResponseEntity getCharacterByNameLike(@PathVariable("name") String name) {
         List<DisneyCharacter> disneyCharacters = disneyCharactersRepository.getDisneyCharacterByNameLike(name);
         if (disneyCharacters.isEmpty() != true){
